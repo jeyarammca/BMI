@@ -1,0 +1,289 @@
+<html>
+ <head> 
+	 <title>Calculate Your BMI - Metric BMI Calculator</title>
+
+
+   
+ <script language="Javascript" type="text/javascript">
+<!--
+function cal_bmi(kg, htc){
+
+
+   m = htc/100;
+   h2 = m * m;
+
+   bmi = kg/h2;
+
+
+   f_bmi = Math.floor(bmi);
+
+   diff  = bmi - f_bmi;
+   diff = diff * 10;
+
+   diff = Math.round(diff);
+   if (diff == 10){
+      // Need to bump up the whole thing instead
+      f_bmi += 1;
+      diff = 0;
+   }
+   bmi = f_bmi + "." + diff;
+
+   return bmi;
+}
+function compute(){
+   var f = self.document.forms[0];
+
+   // Set up variables for calculation
+   w = f.kg.value;
+//   i = parseInt(f.htc.value);
+   i = f.htc.value;
+
+   // Do validation checking to ensure existence of values
+
+   if (!chkw(i)){
+     alert("Please enter a number for your height.");
+     f.htc.focus();
+     return;
+   }
+   if (!chkw(w)){
+     alert("Please enter a number for your weight.");
+     f.kg.focus();
+     return;
+   }
+
+   f.bmi.value = cal_bmi(w, i);
+   f.bmi.focus();
+}
+function chkw(w){
+  // if (isNaN(parseInt(w))){
+   if (isNaN(w)){
+	  return false;
+   } else if (w < 0){
+  return false;
+  }
+  else{
+  return true;
+  }
+}
+// -->
+</script>
+   
+
+   
+   
+   
+ </head> 
+ 
+<body> <div class="container">
+
+<!--allows for spacing above and below date-->
+<table width="1002px" summary="layout table">
+ <tr> 
+  <td> 
+   
+<script>
+	 section="public_inactive" 
+</script>
+
+
+
+
+
+
+
+  </td>
+ </tr>
+ <tr> 
+  <td> <table width="995px" border="0" cellpadding="0" cellspacing="0"
+			 summary="layout table" style="margin-left:5px;">
+   
+    <tr valign="top"> 
+
+     <td width="795"><div id="aimtxt"><br />
+     <table border="0" cellpadding="4" cellspacing="0"
+					 summary="layout table">
+       <tr valign="top"> 
+        <td width="795" style="padding-left:28px; padding-right:28px; "> 
+         <a name="content"></a> 
+         <!--Start Body Text-->
+         
+         
+         
+         
+          <h1>Calculate Your Body Mass Index</h1>
+                  <p>Body mass index (BMI) is a measure
+						  of body fat based on height and weight that applies to  adult men
+					  and women. </p> 
+        <ul> 
+						  <li>Enter your weight and height using <a href="bmicalc.htm">standard</a> or
+							 metric measures. </li> 
+						  <li>Select &quot;Compute BMI&quot; and your BMI will appear below. </li> 
+					  </ul> 
+                  
+                  <table summary="This table is used for layout purposes only." style="margin:auto;" class="bmibkg" width="520"> 
+		<tr> 
+		  <td> 
+			 <form name="bmi_input"> 
+				<table border="0" cellpadding="4" cellspacing="0" width="510"
+				 summary="This table is used for layout purposes only."> 
+				  <tr> 
+                  <td width="250" valign="top" style="margin:auto;"> 
+						<p align="center"><strong><a
+						  href="bmi-m_sp.htm">Espa&ntilde;ol</a></strong></p> 
+                          
+                          <table border="0" cellpadding="0" cellspacing="0" width="200"
+						 summary="This table is used for layout purposes only." class="bmiCalc" style="margin:auto;"> 
+						  <tr> 
+							 <td bgcolor="#6F48B3" width="200" colspan="3"> 
+								<table width="209" border="0" cellpadding="0"
+								 cellspacing="0" summary="This table is used for layout purposes only."> 
+								  <tr> 
+									 <td bgcolor="#FFFFFF"><a href="bmicalc.htm">
+										<img src="images/bmi-m_01.gif" border="0" alt="View Standard Measurements"
+										 width="105" height="28"></a></td> 
+									 <td bgcolor="#FFFFFF">
+										<img src="images/bmi-m_02.gif" border="0" alt="Metric Measurements" width="104"
+										 height="28"></td> 
+								  </tr> 
+								</table>
+                      <!-- End ImageReady Slices --></td> 
+						  </tr> 
+						  <tr> 
+							 <td bgcolor="#6F48B3" width="13">
+								<img border="0" src="/files/images/spacer.gif" width="12" height="1" alt=" "></td> 
+							 <td bgcolor="#6F48B3" width="184"> 
+								<table border="0" cellspacing="0" width="185"
+								 bgcolor="#FFFFFF" cellpadding="2"
+								 summary="This table is used for layout purposes only."> 
+								  <tr> 
+									 <td width="50%" style="text-align:right;"><b><label for="htc">Your
+										Height:</label></b></td> 
+									 <td width="50%" align="left">
+										<input type="text" name="htc" size="5" id="htc"></td> 
+								  </tr> 
+								  <tr> 
+									 <td width="50%">&nbsp;</td> 
+									 <td width="50%" align="left"><b> (centimeters)</b></td> 
+								  </tr> 
+								  <tr> 
+									 <td width="50%" colspan="2"><img
+										src="/files/images/spacer.gif" width="1" height="6" border="0" alt=" "></td> 
+								  </tr> 
+								  <tr> 
+									 <td width="50%" style="text-align:right;"><b><label for="kg">&nbsp;Your
+										Weight:</label></b></td> 
+									 <td width="50%" align="left">
+										<input type="text" name="kg" size="5" id="kg"></td> 
+								  </tr> 
+								  <tr> 
+									 <td width="50%">&nbsp;</td> 
+									 <td width="50%" align="left"><b> (kilograms)</b></td> 
+								  </tr> 
+								  <tr> 
+									 <td colspan="2" align="center" class="colcenter" style="padding-top:5px;"><span class="colcenter" style="padding-top:5px;">
+									   <input type="button" value="Compute BMI" onClick="self.compute();" />
+									 </span></td> 
+								  </tr> 
+								  <tr> 
+									 <td colspan="2" align="center" class="colcenter"> 
+										<table cellspacing="0" cellpadding="0" border="0"
+										 width="150" summary="This table is used for layout purposes only."> 
+										  <tr> 
+											 <td align="LEFT" width="122" colspan="3"
+											  style="background-image: url(images/oeilogo.gif); background-repeat: no-repeat; background-position: center top"
+											  height="201"> 
+												<div
+												 style="margin-left: 45px; margin-top: -3px"><label for="yourbmi"><span
+												  style="font-size: .9em; font-weight:bold;"> Your
+												  BMI:</span></label><br><input name="bmi" type="text" size="4" id="yourbmi"
+												  style="text-align: center"></div></td> 
+										  </tr> 
+										</table></td> 
+								  </tr> 
+								</table>
+                                </td> 
+							 <td bgcolor="#6F48B3" width="13">
+								<img border="0" src="/files/images/spacer.gif" width="12" height="1" alt=" "></td> 
+						  </tr> 
+						  <tr>
+                            <td bgcolor="#6F48B3" colspan="3" width="100%"
+							  align="center">&nbsp;</td>
+                          </tr>
+						</table>
+                          
+                          
+                          
+						</td>
+                  <td valign="top"> 
+						
+						<p><b>BMI Categories: </b><br> 
+						Underweight = &lt;18.5<br> 
+						  Normal weight = 18.5&ndash;24.9 <br> 
+						 Overweight = 25&ndash;29.9 <br> 
+						  Obesity = BMI of 30 or greater </p> 
+						
+						<p><a
+						  href="bmi_tbl.htm"><strong>The BMI
+						  Tables</strong></a></p>
+                      
+                      
+                      </td> 
+				  </tr> 
+				</table> </form>			 </td> 
+		</tr> 
+	 </table>
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         
+         <!--End Body Text--></td>
+       
+       </tr>
+       <!--RIGHT-HAND COLUMN -->
+     </table>
+     <!--END Aimtxt --></div></td>
+    </tr>
+    
+  </table></td>
+ </tr>
+</table>
+<br />
+<html>
+ <head>
+ <!--Digital Analytics Program (DAP) Tracking Code  DO NOT REMOVE   --->
+ <script async type="text/javascript" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=HHS&subagency=NIH"></script>
+ </head>
+ <body>
+     <link rel="stylesheet" type="text/css" href="/styles/footer.css" />
+     <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+
+     <nav role="navigation" aria-labelledby="block-footer-menu" id="block-footer" class="contextual-region block block-menu navigation menu--footer" xmlns="http://www.w3.org/1999/html">
+
+
+
+       
+
+
+     </nav>
+ 
+  
+ 
+
+
+
+
+ </body>
+</html>
+
+</div>
+</body>
+</html>
