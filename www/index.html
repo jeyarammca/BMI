@@ -4,20 +4,13 @@
 <script language="Javascript" type="text/javascript">
 <!--
 function cal_bmi(kg, htc){
-
-
-   m = htc/100;
-   h2 = m * m;
-
-   bmi = kg/h2;
-
-
-   f_bmi = Math.floor(bmi);
-
-   diff  = bmi - f_bmi;
-   diff = diff * 10;
-
-   diff = Math.round(diff);
+	m = htc/100;
+    h2 = m * m;
+	bmi = kg/h2;
+	f_bmi = Math.floor(bmi);
+	diff  = bmi - f_bmi;
+    diff = diff * 10;
+	diff = Math.round(diff);
    if (diff == 10){
       // Need to bump up the whole thing instead
       f_bmi += 1;
@@ -79,43 +72,29 @@ function chkw(w){
      <table border="0" cellpadding="4" cellspacing="0"
 					 summary="layout table">
        <tr valign="top"> 
-        <td width="795" style="padding-left:28px; padding-right:28px; "> 
-         <a name="content"></a> 
+        <td> 
+        
          <!--Start Body Text-->
          
-         
-         
-         
-          <h1>Calculate Your Body Mass Index</h1>
-                  <p>Body mass index (BMI) is a measure
-						  of body fat based on height and weight that applies to  adult men
-					  and women. </p> 
+   <h1>Calculate Your Body Mass Index</h1>
+   <p>Body mass index (BMI) is a measure of body fat based on height and weight that applies to  adult men and women. </p> 
         <ul> 
 						  <li>Enter your weight and height using <a href="bmicalc.htm">standard</a> or
 							 metric measures. </li> 
 						  <li>Select &quot;Compute BMI&quot; and your BMI will appear below. </li> 
 					  </ul> 
                   
-                  <table summary="This table is used for layout purposes only." style="margin:auto;" class="bmibkg" width="520"> 
+ <table> 
 		<tr> 
 		  <td> 
 			 <form name="bmi_input"> 
-				<table border="0" cellpadding="4" cellspacing="0" width="510"
-				 summary="This table is used for layout purposes only."> 
+				<table border="0" cellpadding="4" cellspacing="0"> 
 				  <tr> 
-                  <td width="250" valign="top" style="margin:auto;"> 
-				
-                          
-                          <table border="0" cellpadding="0" cellspacing="0" width="200"
-						 summary="This table is used for layout purposes only." class="bmiCalc" style="margin:auto;"> 
-						  
-						  <tr> 
-							 <td bgcolor="#6F48B3" width="13">
-								<img border="0" src="/files/images/spacer.gif" width="12" height="1" alt=" "></td> 
-							 <td bgcolor="#6F48B3" width="184"> 
-								<table border="0" cellspacing="0" width="185"
-								 bgcolor="#FFFFFF" cellpadding="2"
-								 summary="This table is used for layout purposes only."> 
+                  <td valign="top" style="margin:auto;">
+                        <table border="0" cellpadding="0" cellspacing="0">
+						  <tr>
+							 <td bgcolor="#6F48B3"> 
+								<table border="0" cellspacing="0"> 
 								  <tr> 
 									 <td width="50%" style="text-align:right;"><b><label for="htc">Your
 										Height:</label></b></td> 
@@ -150,9 +129,7 @@ function chkw(w){
 										<table cellspacing="0" cellpadding="0" border="0"
 										 width="150" summary="This table is used for layout purposes only."> 
 										  <tr> 
-											 <td align="LEFT" width="122" colspan="3"
-											  style="background-image: url(images/oeilogo.gif); background-repeat: no-repeat; background-position: center top"
-											  height="201"> 
+											 <td> 
 												<div
 												 style="margin-left: 45px; margin-top: -3px"><label for="yourbmi"><span
 												  style="font-size: .9em; font-weight:bold;"> Your
@@ -163,8 +140,7 @@ function chkw(w){
 								  </tr> 
 								</table>
                                 </td> 
-							 <td bgcolor="#6F48B3" width="13">
-								<img border="0" src="/files/images/spacer.gif" width="12" height="1" alt=" "></td> 
+							
 						  </tr> 
 						  <tr>
                             <td bgcolor="#6F48B3" colspan="3" width="100%"
