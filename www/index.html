@@ -1,7 +1,148 @@
 <html>
  <head> 
 <title>Calculate Your BMI - Metric BMI Calculator</title>
+<script type="text/javascript" src="js/jquery-1.8.1.min.js"></script>
+
+<style>
+.footergap{ margin-left:30px;color:#FFFF; }
+.head-title{ background-color:red;color:#FFFF; padding:10px; }
+.footer-menu{ background-color:red;color:#FFFF; padding:10px; margin-top:20px; margin-bottom:20px; }
+
+</style>
+
+</head> 
+<body> 
+<div class="container">
+
+<div id="screen1">
+<div class="head-title">BMI Calculator</div>
+<div>
+ <p><label><input type="radio" name="gender" value="male" checked="checked"> Male</label></p>
+ <p><label><input type="radio" name="gender" value="female"> Female</label></p>
+</div>
+<div><input type="button" name="next1" id="next1" value="CONTINUE ->"></div>
+<div class="footer-menu">
+<a href="#" class="footergap">Home</a> | <a href="#" class="footergap">BMI Table</a> | <a href="#" class="footergap">More</a>
+</div>
+<div>powered by : Jeyaram</div>
+</div>
+
+
+<div id="screen2" style="display:none;">
+<div class="head-title">BMI Calculator</div>
+<div>
+ <p>Hey Sam! Your Weight Please?</p>
+ </div>
+<div><p><label><input type="number" name="weight" id="weight">(kilograms)</label></p></div>
+<div id="weighterror" style="display:none;color:red;">Weight Field is required.</div>
+<div><input type="button" name="next2" id="next2" value="CONTINUE ->"></div>
+<div class="footer-menu">
+<a href="#" class="footergap">Home</a> | <a href="#" class="footergap">BMI Table</a> | <a href="#" class="footergap">More</a>
+<div>powered by : Jeyaram</div>
+</div>
+</div>
+
+<div id="screen3" style="display:none;">
+<div class="head-title">BMI Calculator</div>
+<div>
+ <p>Hey Sam! Your Height Please?</p>
+</div>
+<div><p><label><input type="number" name="height" id="height">(centimeters)</label></p></div>
+<div id="heighterror" style="display:none;color:red;">Height Field is required.</div>
+<div><input type="button" name="next3" id="next3" value="Compute BMI ->"></div>
+<div class="footer-menu">
+<a href="#" class="footergap">Home</a> | <a href="#" class="footergap">BMI Table</a> | <a href="#" class="footergap">More</a>
+<div>powered by : Jeyaram</div>
+</div>
+</div>
+
+
+<div id="screen4" style="display:none;">
+<div class="head-title">BMI Calculator</div>
+<div>
+ <p>Hey Sam! Your BMI IS?</p>
+</div>
+<div><input name="bmi" type="text" size="4" id="yourbmi" style="text-align: center" readonly></div>
+
+<div>
+<p><b>BMI Categories: </b><br> 
+Underweight = &lt;18.5<br> 
+Normal weight = 18.5&ndash;24.9 <br> 
+Overweight = 25&ndash;29.9 <br> 
+Obesity = BMI of 30 or greater </p> 
+</div>
+
+<div><input type="button" name="testag" id="testag" value="Test Again!"></div>
+
+<div class="footer-menu">
+<a href="#" class="footergap">Home</a> | <a href="#" class="footergap">BMI Table</a> | <a href="#" class="footergap">More</a>
+</div>
+<div>powered by : Jeyaram</div>
+</div>
+</div>
+
+
+
 <script language="Javascript" type="text/javascript">
+$("#testag").click(function(){
+	location.reload();
+});
+
+$("#next1").click(function(){
+	$("#screen1").hide();
+	$("#screen2").show();
+});
+
+$("#next2").click(function(){
+	var weight = $("#weight").val();
+	var has = 1;
+	if(weight==""){
+		$("#weighterror").show();
+		has = 0;
+	}else{
+		has = 1;
+	}
+	if(has==1){
+		$("#screen2").hide();
+		$("#screen3").show();
+	}
+});
+
+$("#next3").click(function(){
+	var height = $("#height").val();
+	var has = 1;
+	if(height==""){
+		$("#heighterror").show();
+		has = 0;
+	}else{
+		has = 1;
+	}
+	if(has==1){
+		$("#screen3").hide();
+		$("#screen4").show();
+		compute();
+	}
+});
+
+
+$('#weight').on('blur', function() {
+    var weight = $("#weight").val();
+	if(weight==""){
+		$("#weighterror").show();
+	}else{
+		$("#weighterror").hide();
+	}
+});
+
+$('#height').on('blur', function() {
+    var height = $("#height").val();
+	if(height==""){
+		$("#heighterror").show();
+	}else{
+		$("#heighterror").hide();
+	}
+});
+
 <!--
 function cal_bmi(kg, htc){
 	m = htc/100;
@@ -24,25 +165,13 @@ function compute(){
    var f = self.document.forms[0];
 
    // Set up variables for calculation
-   w = f.kg.value;
-//   i = parseInt(f.htc.value);
-   i = f.htc.value;
+   w = $("#weight").val();
+	//i = parseInt(f.htc.value);
+   i = $("#height").val();
 
    // Do validation checking to ensure existence of values
-
-   if (!chkw(i)){
-     alert("Please enter a number for your height.");
-     f.htc.focus();
-     return;
-   }
-   if (!chkw(w)){
-     alert("Please enter a number for your weight.");
-     f.kg.focus();
-     return;
-   }
-
-   f.bmi.value = cal_bmi(w, i);
-   f.bmi.focus();
+   var bmivalue =  cal_bmi(w, i);
+   $("#yourbmi").val(bmivalue);
 }
 function chkw(w){
   // if (isNaN(parseInt(w))){
@@ -57,138 +186,5 @@ function chkw(w){
 }
 // -->
 </script>
-</head> 
-<body> 
-<div class="container">
-<!--allows for spacing above and below date-->
-<table summary="layout table">
- 
- <tr> 
-  <td> <table  border="0" cellpadding="0" cellspacing="0" summary="layout table" style="margin-left:5px;">
-   
-    <tr valign="top"> 
-
-     <td><div id="aimtxt"><br />
-     <table border="0" cellpadding="4" cellspacing="0"
-					 summary="layout table">
-       <tr valign="top"> 
-        <td> 
-        
-         <!--Start Body Text-->
-         
-   <h1>Calculate Your Body Mass Index</h1>
-   <p>Body mass index (BMI) is a measure of body fat based on height and weight that applies to  adult men and women. </p> 
-        <ul> 
-						  <li>Enter your weight and height using <a href="bmicalc.htm">standard</a> or
-							 metric measures. </li> 
-						  <li>Select &quot;Compute BMI&quot; and your BMI will appear below. </li> 
-					  </ul> 
-                  
- <table> 
-		<tr> 
-		  <td> 
-			 <form name="bmi_input"> 
-				<table border="0" cellpadding="4" cellspacing="0"> 
-				  <tr> 
-                  <td valign="top" style="margin:auto;">
-                        <table border="0" cellpadding="0" cellspacing="0">
-						  <tr>
-							 <td bgcolor="#6F48B3"> 
-								<table border="0" cellspacing="0"> 
-								  <tr> 
-									 <td width="50%" style="text-align:right;"><b><label for="htc">Your
-										Height:</label></b></td> 
-									 <td width="50%" align="left">
-										<input type="text" name="htc" size="5" id="htc"></td> 
-								  </tr> 
-								  <tr> 
-									 <td width="50%">&nbsp;</td> 
-									 <td width="50%" align="left"><b> (centimeters)</b></td> 
-								  </tr> 
-								  <tr> 
-									 <td width="50%" colspan="2"><img
-										src="/files/images/spacer.gif" width="1" height="6" border="0" alt=" "></td> 
-								  </tr> 
-								  <tr> 
-									 <td width="50%" style="text-align:right;"><b><label for="kg">&nbsp;Your
-										Weight:</label></b></td> 
-									 <td width="50%" align="left">
-										<input type="text" name="kg" size="5" id="kg"></td> 
-								  </tr> 
-								  <tr> 
-									 <td width="50%">&nbsp;</td> 
-									 <td width="50%" align="left"><b> (kilograms)</b></td> 
-								  </tr> 
-								  <tr> 
-									 <td colspan="2" align="center" class="colcenter" style="padding-top:5px;"><span class="colcenter" style="padding-top:5px;">
-									   <input type="button" value="Compute BMI" onClick="self.compute();" />
-									 </span></td> 
-								  </tr> 
-								  <tr> 
-									 <td colspan="2" align="center" class="colcenter"> 
-										<table cellspacing="0" cellpadding="0" border="0"
-										 width="150" summary="This table is used for layout purposes only."> 
-										  <tr> 
-											 <td> 
-												<div
-												 style="margin-left: 45px; margin-top: -3px"><label for="yourbmi"><span
-												  style="font-size: .9em; font-weight:bold;"> Your
-												  BMI:</span></label><br><input name="bmi" type="text" size="4" id="yourbmi"
-												  style="text-align: center"></div></td> 
-										  </tr> 
-										</table></td> 
-								  </tr> 
-								</table>
-                                </td> 
-							
-						  </tr> 
-						  <tr>
-                            <td bgcolor="#6F48B3" colspan="3" width="100%"
-							  align="center">&nbsp;</td>
-                          </tr>
-						</table>
-                          
-                          
-                          
-						</td>
-                  <td valign="top"> 
-						
-						<p><b>BMI Categories: </b><br> 
-						Underweight = &lt;18.5<br> 
-						  Normal weight = 18.5&ndash;24.9 <br> 
-						 Overweight = 25&ndash;29.9 <br> 
-						  Obesity = BMI of 30 or greater </p> 
-						
-						<p><a
-						  href="bmi_tbl.htm"><strong>The BMI
-						  Tables</strong></a></p>
-                      
-                      
-                      </td> 
-				  </tr> 
-				</table> </form>			 </td> 
-		</tr> 
-	 </table>
-         
-         <!--End Body Text--></td>
-       
-       </tr>
-       <!--RIGHT-HAND COLUMN -->
-     </table>
-     <!--END Aimtxt --></div></td>
-    </tr>
-	
-	<tr><td>POWERD BY JEYARAM.</td></tr>
-    
-  </table></td>
- </tr>
-</table>
-<br />
-<html>
- 
- 
-</html>
-
-</div>
 </body>
 </html>
